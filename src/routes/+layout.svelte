@@ -3,6 +3,7 @@
 	import './layout.css';
 
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 
 	import Logo from '$lib/components/Logo.svelte';
 	import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
@@ -45,7 +46,7 @@
 
 <header>
 	<nav class="flex flex-row justify-between items-start gap-2 p-2 lg:p-8">
-		<a href="/about" aria-label="about" class="flex aspect-square min-w-12 min-h-12"
+		<a href="{base}/about" aria-label="about" class="flex aspect-square min-w-12 min-h-12"
 			><iconify-icon icon="picon:question" width="48" height="48"></iconify-icon></a
 		>
 		<Logo {data} />

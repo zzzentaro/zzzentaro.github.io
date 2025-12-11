@@ -29,7 +29,12 @@ jobs:
         run: pnpm install
 
       - name: Build
+        env:
+          BASE_PATH: '/zzzentaro.github.io'
         run: pnpm build
+
+      - name: Add .nojekyll file
+        run: touch build/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

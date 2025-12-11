@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	let { data } = $props();
-	let avatarUrl = $state(data.avatarUrl);
+	let avatarUrl = $derived(data.avatarUrl);
 
 	async function loadAvatar() {
 		try {
