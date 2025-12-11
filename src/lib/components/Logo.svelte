@@ -4,7 +4,7 @@
 	let avatarUrl = '';
 
 	async function loadAvatar() {
-		const res = await fetch('http://localhost:3001/avatar?' + Date.now());
+		const res = await fetch('https://prts.zzzentaro.workers.dev/' + Date.now());
 		avatarUrl = await res.text();
 	}
 
