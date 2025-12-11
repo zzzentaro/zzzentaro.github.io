@@ -7,6 +7,8 @@
 	import Logo from '$lib/components/Logo.svelte';
 	import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
 
+	let { data, children } = $props();
+
 	let isDarkTheme = $state(false);
 
 	function toggleTheme() {
@@ -30,13 +32,15 @@
 		isDarkTheme = storedTheme === 'dark' || (!storedTheme && prefersDark);
 		updateTheme();
 	});
-
-	let { children } = $props();
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>67</title>
+	<meta
+		http-equiv="content-security-policy"
+		content="connect-src 'self' https://api.iconify.design;"
+	/>
 </svelte:head>
 
 <header>
@@ -44,7 +48,7 @@
 		<a href="/about" aria-label="about" class="flex aspect-square min-w-12 min-h-12"
 			><iconify-icon icon="picon:question" width="48" height="48"></iconify-icon></a
 		>
-		<Logo />
+		<Logo {data} />
 		<ThemeSwitch {toggleTheme} {isDarkTheme} />
 	</nav>
 </header>

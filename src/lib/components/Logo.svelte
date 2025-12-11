@@ -1,15 +1,19 @@
 <script>
 	import { onMount } from 'svelte';
 
-	let avatarUrl = '';
+	let { data } = $props();
+	let avatarUrl = $state(data.avatarUrl);
 
 	async function loadAvatar() {
-		const res = await fetch('https://prts.zzzentaro.workers.dev/' + Date.now());
-		avatarUrl = await res.text();
+		try {
+			const res = await fetch('https://prts.zzzentaro.workers.dev/' + Date.now());
+			avatarUrl = await res.text();
+		} catch (error) {
+			console.error('Failed to load avatar:', error);
+		}
 	}
 
 	onMount(() => {
-		loadAvatar();
 		setInterval(loadAvatar, 60_000);
 	});
 </script>
