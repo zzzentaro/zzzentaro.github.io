@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--font-aboreto: 'Aboreto', display;
+	--font-fredoka: 'Fredoka', sans-serif;
+	--font-pangolin: 'Pangolin', handwriting;
+}
+
+@variant dark (&:where(.dark, .dark *));
+html {
+	@apply size-full bg-linear-to-r from-fuchsia-100 via-pink-100 to-rose-100 font-pangolin text-gray-800 transition-colors duration-300;
+}
+html.dark {
+	@apply from-zinc-900 via-neutral-900 to-stone-900 text-gray-200;
+}
+
+body {
+	@apply flex size-full flex-col justify-between;
+}
